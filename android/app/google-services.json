@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "410740142462",
+    "project_id": "wisewavetest",
+    "storage_bucket": "wisewavetest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410740142462:android:7303d4f8dcceb5b4c0c32f",
+        "android_client_info": {
+          "package_name": "com.example.wise_wave"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDu0_n9WSdBSHqz4vLgbm-VT-ijCPonvBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
