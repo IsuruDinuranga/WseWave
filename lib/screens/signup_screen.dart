@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:wise_wave/components/square_tile.dart';
 
-class SignupPage extends StatelessWidget {
-  const SignupPage({super.key});
+class SignupPage extends StatefulWidget {
+  final Function()? onTap;
+  const SignupPage({super.key, required this.onTap});
 
+  @override
+  State<SignupPage> createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,9 +175,7 @@ class SignupPage extends StatelessWidget {
                       ),
                       const SizedBox(width: 10),
                       GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/login');
-                        },
+                        onTap: widget.onTap,
                         child: const Text(
                           'Log in',
                           style: TextStyle(

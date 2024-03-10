@@ -4,9 +4,18 @@ import 'package:wise_wave/components/my_button.dart';
 import 'package:wise_wave/components/my_textfield.dart';
 import 'package:wise_wave/components/square_tile.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  final Function()? onTap;
+  const LoginPage({super.key, required this.onTap});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  //text editior controllers
   final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   void signUserIn() async {
@@ -69,6 +78,8 @@ class LoginPage extends StatelessWidget {
                   MyButton(
                     onTap: signUserIn,
                   ),
+
+                  const SizedBox(height: 30),
 
                   //or
                   Row(
@@ -138,9 +149,10 @@ class LoginPage extends StatelessWidget {
                       ),
                       const SizedBox(width: 10,),
                       GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/signup');
-                        },
+                        // onTap: () {
+                        //   Navigator.pushNamed(context, '/signup');
+                        // },
+                        onTap: widget.onTap,
                         child: const Text(
                           'Sign up',
                           style: TextStyle(
