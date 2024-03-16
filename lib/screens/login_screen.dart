@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wise_wave/animation/fade_animation.dart';
+import 'package:wise_wave/components/auth_service.dart';
 import 'package:wise_wave/components/my_button.dart';
 import 'package:wise_wave/components/my_textfield.dart';
 import 'package:wise_wave/components/square_tile.dart';
@@ -29,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
+        child: FadeAnimation(1.5, Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
@@ -122,11 +124,13 @@ class _LoginPageState extends State<LoginPage> {
 
                   const SizedBox(height: 20,),
                   
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       //google
-                      SquareTile(imagePath: 'assets/images/google.jpeg'),
+                      SquareTile(
+                        onTap: () => AuthService().signInWithGoogle(),
+                        imagePath: 'assets/images/google.jpeg'),
 
                       // //apple
                       // SquareTile(imagePath: 'assets/images/apple.jpeg'),
@@ -170,6 +174,7 @@ class _LoginPageState extends State<LoginPage> {
               ), 
             ),
           ),
+        ),
         ),
       ),
     );
